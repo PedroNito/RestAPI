@@ -17,3 +17,12 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/games/search', 'GameController@search')->name('games.search');
+Route::apiResource('games','GameController');
+
+Route::get('/genres/search', 'GenreController@search')->name('genres.search');
+Route::apiResource('genres','GenreController');
+
+Route::get('/platforms/search', 'PlatformController@search')->name('platforms.search');
+Route::apiResource('platforms','PlatformController');
